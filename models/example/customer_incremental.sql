@@ -6,10 +6,11 @@
     )
 }}
 
-source as (
 
-    select * from {{ source('SNOWFLAKE', 'customer') }}
+
+    select * from {{ source('SNOWFLAKE','customer')}}
     {% if is_incremental() %}
-    where c_custkey > (select max(c_custkey) from {{ this }})
+      where c_custkey > (select max(c_custkey) from {{ this }})
     {% endif %}
-)
+
+
