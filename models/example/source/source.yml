@@ -13,4 +13,5 @@ sources:
     schema: DBT_SMURUGESAN  
     tables:
       - name: shipping
+      - name: home
      
