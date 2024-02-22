@@ -1,4 +1,13 @@
-{{ config(materialized="table") }}
+{{
+  config(
+    materialized = 'incremental',
+    unique_key = 'id',  
+    incremental_strategy='delete+insert',
+    incremental_predicates = [
+      "last_updated_ts >= dateadd('day', -7, current_date)"
+    ]
+  )
+}}
 
 with
     latest_data as (
@@ -7,12 +16,12 @@ with
             name,
             city,
             last_updated_ts,
-            flag,
-            row_number() over (partition by id order by last_updated_ts desc) as row_num
+            flag
+        
         from raw.dbt_smurugesan.scd1
-        where flag = 'Y' or last_updated_ts >= dateadd('day', -7, current_date)
+    
     )
 
 select id, name, city, last_updated_ts, flag
 from latest_data
-where row_num = 1
+
