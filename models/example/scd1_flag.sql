@@ -2,7 +2,7 @@
   config(
     materialized = 'incremental',
     unique_key = 'id',  
-    incremental_strategy='delete+insert',
+    incremental_strategy='merge',
     incremental_predicates = [
       "last_updated_ts >= dateadd('day', -7, current_date)"
     ]
