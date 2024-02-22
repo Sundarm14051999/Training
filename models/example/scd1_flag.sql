@@ -4,7 +4,7 @@
     unique_key = 'id',  
     incremental_strategy='merge',
     incremental_predicates = [
-      "last_updated_ts >= dateadd('day', -7, current_date)"
+      "DBT_INTERNAL_DEST.last_updated_ts >= dateadd('day', -7, current_date)"
     ]
   )
 }}
@@ -18,10 +18,10 @@ with
             last_updated_ts,
             flag
         
-        from raw.dbt_smurugesan.scd1
+        from raw.dbt_smurugesan.scd1 
     
     )
 
 select id, name, city, last_updated_ts, flag
-from latest_data
+from latest_data a
 
