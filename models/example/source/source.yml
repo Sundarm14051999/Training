@@ -8,3 +8,9 @@ sources:
       - name: orders
       - name: customer
       - name: supplier
+  - name: snapshot
+    database: raw   
+    schema: dbt_murugesan  
+    tables:
+      -shipping
+     
