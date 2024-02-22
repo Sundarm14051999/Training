@@ -9,8 +9,8 @@ sources:
       - name: customer
       - name: supplier
   - name: snapshot
-    database: raw   
-    schema: dbt_murugesan  
+    database: RAW  
+    schema: DBT_SMURUGESAN  
     tables:
       - name: shipping
      
