@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: is_evens
+    columns:
+      - name: score
+        tests:
+          - name: is_even
+            testing:
+              is_even: {}

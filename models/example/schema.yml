@@ -19,3 +19,10 @@ models:
             tests:
                 - unique
                 - not_null
+    - name: is_even
+      description: "checking even values in the column"
+      columns:
+          - name: score
+            description: "shipping score for this table"
+            tests:
+                - is_even
