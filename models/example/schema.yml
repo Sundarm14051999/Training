@@ -27,3 +27,7 @@ models:
             tests:
                 - non_numeric_test
                 - warn_if_odd
+          - name: id
+            description: "The unique identifier of the user"
+          - name: name
+            description: "Name of the cricketer"
