@@ -1,8 +1,9 @@
+{% test warn_if_odd(model, column_name) %}
 
+    {{ config(severity = 'warn') }}
 
-
-{% test is_even(model, coulmn_name) %}
-
-select * from {{ref('snipping_snap')}}
+    select *
+    from {{ model }}
+    where ({{ column_name }} % 2) = 1
 
 {% endtest %}

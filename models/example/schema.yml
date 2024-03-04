@@ -19,10 +19,11 @@ models:
             tests:
                 - unique
                 - not_null
-    - name: is_even
+    - name: snapshot_timetamp_check
       description: "checking even values in the column"
       columns:
           - name: score
             description: "shipping score for this table"
             tests:
-                - is_even
+                - non_numeric_test
+                - warn_if_odd
