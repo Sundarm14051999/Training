@@ -5,6 +5,9 @@ models:
     columns:
       - name: score
         tests:
-          - name: is_even
+          - name: non_numeric_test
             testing:
-              is_even: {}
+              non_numeric_test: {}
+          - name: warn_if_odd
+            testing:
+              warn_if_odd: {}
